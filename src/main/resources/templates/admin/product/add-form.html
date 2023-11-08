@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Product</title>
+</head>
+<body>
+<h1 th:align="center">Add New Product</h1>
+<div class="x">
+    <form action="#" th:action="@{/products/add}" th:object="${product}" method="post">
+        <div class="row mb-3">
+            <label for="name" class="col-sm-3">Name</label>
+            <div class="col-12">
+                <input type="text" class="form-control" id="name" th:field="*{name}">
+            </div>
+            <div class="row mb-3">
+                <label for="description" class="col-sm-5">Description</label>
+                <div class="col-12">
+                    <textarea rows="6", cols="20" class="form-control" id="description" th:field="*{description}"></textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="unit" class="col-sm-10">Description</label>
+                <div class="col-12">
+                    <input type="text" class="form-control" id="unit" th:field="*{unit}">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="selectStatus" class="col-sm-10">Status</label>
+                <div class="col-12">
+                    <select id="selectStatus" th:field="*{status}">
+                        <option
+                            th:each="st:${T(vn.edu.iuh.fit.week7_lab_phamthibichngoc_20026291.backend.enums.ProductStatus).values()}"
+                            th:value="${st}"
+                            th:text="${st}"
+                        ></option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <br/>
+        <div class="d-grid gap-1 col-3 mx-auto">
+            <input class="btn btn-primary" type="submit" value="Add Product">
+        </div>
+    </form>
+</div>
+</body>
+</html>
